@@ -1,22 +1,18 @@
 import React from 'react';
 import './ContentBox.css';
 
+const fmt = (d) => {
+  const dt = new Date(d);
+  return `${dt.getFullYear()}/${String(dt.getMonth()+1).padStart(2,'0')}/${String(dt.getDate()).padStart(2,'0')}`;
+};
+
 const UpdateContentBox = ({ onSubmit, content }) => {
   const [record, setRecord] = React.useState(content);
-
-  const formatDate = (dateStr) => {
-    const date = new Date(dateStr);
-    return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}`;
-  };
-
-  const handleSubmit = () => {
-    onSubmit(record);
-  };
 
   return (
     <div className="content-box">
       <div className="field-group">
-        <label className="field-label"><span>🏋️</span> Exercise Name</label>
+        <label className="field-label">🏋️ Exercise Name</label>
         <input
           type="text"
           value={record.exercise}
@@ -25,7 +21,7 @@ const UpdateContentBox = ({ onSubmit, content }) => {
         />
       </div>
       <div className="field-group">
-        <label className="field-label"><span>⚖️</span> Body Weight (kg)</label>
+        <label className="field-label">⚖️ Body Weight (kg)</label>
         <input
           type="number"
           value={record.weight}
@@ -34,7 +30,7 @@ const UpdateContentBox = ({ onSubmit, content }) => {
         />
       </div>
       <div className="field-group">
-        <label className="field-label"><span>🥗</span> Diet / Nutrition</label>
+        <label className="field-label">🥗 Diet / Nutrition</label>
         <input
           type="text"
           value={record.diet || ''}
@@ -42,8 +38,8 @@ const UpdateContentBox = ({ onSubmit, content }) => {
           placeholder="e.g. High protein"
         />
       </div>
-      <div className="date-tag">📅 Added: {formatDate(record.date)}</div>
-      <button className="btn-primary" onClick={handleSubmit}>✏️ Update Record</button>
+      <div className="date-tag">📅 Added: {fmt(record.date)}</div>
+      <button className="btn-primary" onClick={() => onSubmit(record)}>Update Record</button>
     </div>
   );
 };

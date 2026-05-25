@@ -2,21 +2,20 @@ import React from 'react';
 import './ContentBox.css';
 
 const CreateContentBox = ({ onSubmit }) => {
-  const [exercise, setExercise] = React.useState("");
-  const [weight, setWeight] = React.useState("");
-  const [diet, setDiet] = React.useState("");
+  const [exercise, setExercise] = React.useState('');
+  const [weight, setWeight]     = React.useState('');
+  const [diet, setDiet]         = React.useState('');
 
   const handleSubmit = () => {
-    onSubmit(exercise, parseInt(weight) || 0, diet);
-    setExercise('');
-    setWeight('');
-    setDiet('');
+    if (!exercise.trim()) return;
+    onSubmit(exercise.trim(), parseInt(weight) || 0, diet.trim());
+    setExercise(''); setWeight(''); setDiet('');
   };
 
   return (
     <div className="content-box">
       <div className="field-group">
-        <label className="field-label"><span>🏋️</span> Exercise Name</label>
+        <label className="field-label">🏋️ Exercise Name</label>
         <input
           type="text"
           value={exercise}
@@ -25,7 +24,7 @@ const CreateContentBox = ({ onSubmit }) => {
         />
       </div>
       <div className="field-group">
-        <label className="field-label"><span>⚖️</span> Body Weight (kg)</label>
+        <label className="field-label">⚖️ Body Weight (kg)</label>
         <input
           type="number"
           value={weight}
@@ -34,7 +33,7 @@ const CreateContentBox = ({ onSubmit }) => {
         />
       </div>
       <div className="field-group">
-        <label className="field-label"><span>🥗</span> Diet / Nutrition</label>
+        <label className="field-label">🥗 Diet / Nutrition</label>
         <input
           type="text"
           value={diet}
@@ -42,7 +41,7 @@ const CreateContentBox = ({ onSubmit }) => {
           placeholder="e.g. High protein, Low carb"
         />
       </div>
-      <button className="btn-primary" onClick={handleSubmit}>🛒 Add to Cart</button>
+      <button className="btn-primary" onClick={handleSubmit}>Add Record</button>
     </div>
   );
 };
