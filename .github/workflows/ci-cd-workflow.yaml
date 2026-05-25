@@ -79,19 +79,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Azure Login using individual Service Principal credentials
-      - name: Azure Login
-        uses: azure/login@v2
-        with:
-          creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
-
-      # Get AKS Credentials
-      - name: Get AKS Credentials
+      # Set up kubeconfig from secret
+      - name: Set up kubeconfig
         run: |
-          az aks get-credentials \
-            --resource-group ${{ secrets.RESOURCE_GROUP }} \
-            --name ${{ secrets.AKS_CLUSTER_NAME }} \
-            --overwrite-existing
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" > $HOME/.kube/config
 
       # Install Helm
       - name: Install Helm
