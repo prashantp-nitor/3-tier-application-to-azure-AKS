@@ -6,7 +6,7 @@ function App() {
     <div>
       <header className="amazon-header">
         <div className="header-logo">
-          <span className="logo-text">gymzon</span>
+          <span className="logo-text">FitCart</span>
           <span className="logo-sub">.in</span>
         </div>
 
@@ -48,8 +48,22 @@ function App() {
       </nav>
 
       <div className="amazon-banner">
-        <h1>🏋️ Gym Records Store</h1>
-        <p>Track, manage and update your workout records</p>
+        <h1>🏋️ FitCart — Gym Records Store</h1>
+        <p>No Pain. No Gain. Track Every Rep.</p>
+        <div className="banner-stats">
+          <div className="banner-stat">
+            <div className="banner-stat-value">💪</div>
+            <div className="banner-stat-label">Strength</div>
+          </div>
+          <div className="banner-stat">
+            <div className="banner-stat-value">🔥</div>
+            <div className="banner-stat-label">Intensity</div>
+          </div>
+          <div className="banner-stat">
+            <div className="banner-stat-value">🏆</div>
+            <div className="banner-stat-label">Results</div>
+          </div>
+        </div>
       </div>
 
       <Home />

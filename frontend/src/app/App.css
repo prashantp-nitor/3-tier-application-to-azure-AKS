@@ -1,8 +1,8 @@
 .main-component {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  padding: 16px 24px 32px;
+  gap: 20px;
+  padding: 28px 24px 48px;
   flex-wrap: wrap;
   max-width: 1400px;
   margin: 0 auto;
