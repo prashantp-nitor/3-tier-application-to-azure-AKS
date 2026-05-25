@@ -1,20 +1,25 @@
 .vertical-container {
-    margin: 5px;
-    min-height: 400px;
-    padding-bottom: 20px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    overflow: hidden;
-    border-radius: 15px;
-   min-width: 260px;
-    max-width: 500px;
-    width: 100%;
-    
-    
+  background-color: #FFFFFF;
+  border: 1px solid #D5D9D9;
+  border-radius: 8px;
+  min-height: 420px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  min-width: 270px;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(15, 17, 17, 0.15);
 }
 
 .vertical-container h2 {
-    padding-top: 20px;
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #232F3E;
+  color: #FF9900;
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 17px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid #FF9900;
+  text-transform: uppercase;
 }
